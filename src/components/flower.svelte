@@ -1,5 +1,5 @@
 <script>
-	import { Canvas, Layer, t } from "svelte-canvas";
+	import { Canvas, Layer } from "svelte-canvas";
   
     let flowerObject = {
         value:{
@@ -19,17 +19,22 @@
             [0],[0],[0],[1],[1],[2],[2],[2],[2],[1],[2],[1],[1],[1],[0],[0],
             [0],[0],[0],[0],[1],[2],[2],[2],[2],[2],[2],[1],[0],[0],[0],[0],
             [0],[1],[1],[1],[1],[1],[1],[1],[1],[1],[1],[1],[1],[1],[1],[0],
-            [1],[3],[3],[3],[3],[3],[3],[3],[3],[3],[3],[3],[3],[3],[3],[3],
+            [1],[3],[3],[3],[3],[3],[3],[3],[3],[3],[3],[3],[3],[3],[3],[1],
             [0],[1],[1],[1],[1],[1],[1],[1],[1],[1],[1],[1],[1],[1],[1],[0],
             [0],[0],[0],[1],[3],[1],[3],[3],[3],[3],[1],[3],[1],[0],[0],[0],
             [0],[0],[0],[1],[3],[1],[3],[3],[3],[3],[1],[3],[1],[0],[0],[0],
             [0],[0],[0],[1],[3],[1],[3],[3],[3],[3],[1],[3],[1],[0],[0],[0],
             [0],[0],[0],[0],[1],[1],[1],[1],[1],[1],[1],[1],[0],[0],[0],[0]
-        ]}
+        ]};
+
+      let Enum = Object.keys(flowerObject.value);
 	$: render = ({ context, width, height }) => {
-	  context.fillStyle = `hsl(${$t / 40}, 100%, 50%)`;
 	  context.beginPath();
-	  context.arc(($t / 4) % width, ($t / 4) % height, 100, 0, Math.PI * 2);
+    const len = 24;
+    flowerObject.array.map((element,index)=>{
+      context.fillStyle = flowerObject.value[Enum[element]];
+      context.fillRect(index%16*len,Math.floor(index/16)*len,len,len);
+    });
 	  context.fill();
 	};
   </script>

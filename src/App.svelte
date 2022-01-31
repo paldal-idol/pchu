@@ -14,8 +14,7 @@
 				<Button title={option.title} className={'Small'}/>
 			{/each}
 		</div>
-		<!-- <img src={image} alt={'main image'}/> -->
-		<Flower/>
+		<Flower />
 		<Button title={'Generate'} className={'Big'}/>
 		<Button title={'Download'} className={'Big'}/>
 	</div>
@@ -33,11 +32,7 @@
 		flex-direction: column;
 		justify-content: center;
 	}
-	img{
-		margin: 1em;
-		width: 30%;
-		align-self: center;
-	}
+	
 	h1 {
 		color: #ffff;
 		text-transform: uppercase;
