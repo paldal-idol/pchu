@@ -1,6 +1,8 @@
 <script lang="js">
-	let image = 'img/main.png';
 	import Button from './components/Button.svelte';
+	import Flower from './components/flower.svelte';
+
+	let image = 'img/main.png';
 	const options = [{title:'github'},{title:'cat'},{title:'woman'},{title:'man'},{title:'pig'},{title:'flower'}];
 </script>
 
@@ -12,7 +14,8 @@
 				<Button title={option.title} className={'Small'}/>
 			{/each}
 		</div>
-		<img src={image} alt={'main image'}/>
+		<!-- <img src={image} alt={'main image'}/> -->
+		<Flower/>
 		<Button title={'Generate'} className={'Big'}/>
 		<Button title={'Download'} className={'Big'}/>
 	</div>
