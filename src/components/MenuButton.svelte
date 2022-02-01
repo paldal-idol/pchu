@@ -1,10 +1,10 @@
 <script>
     export let title;
-    export let className;
+    export let category;
     export let handleChangeCategory;
 </script>
 
-<button class={className} on:click={()=>handleChangeCategory(title)}>{title}</button>
+<button class={title===category?'selected':''} on:click={handleChangeCategory(title)}>{title}</button>
 
 <style>
     button{

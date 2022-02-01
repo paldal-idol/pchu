@@ -1,14 +1,14 @@
 <script lang="js">
-  import Painter from './components/Painter.svelte';
+  	import Painter from './components/Painter.svelte';
 	import ActionButton from "./components/ActionButton.svelte";
 	import MenuButton from "./components/MenuButton.svelte";
+	
 	let category = 'flower';
-
-	function handleChangeCategory(value){
+	const options = [{title:'github'},{title:'cat'},{title:'woman'},{title:'man'},{title:'pig'},{title:'flower'}];
+	function handleChangeCategory(value)
+	{
 		category = value;
 	}
-	let image = 'img/main.png';
-	const options = [{title:'github'},{title:'cat'},{title:'woman'},{title:'man'},{title:'pig'},{title:'flower'}];
 </script>
 
 <main>
@@ -16,10 +16,10 @@
 		<h1>pchu</h1>
 		<div class="Options">
 			{#each options as option}
-				<MenuButton title={option.title} {handleChangeCategory}/>
+				<MenuButton title={option.title} {handleChangeCategory} {category}/>
 			{/each}
 		</div>
-    <div class="Canvas">
+    	<div class="Canvas">
 			<Painter {category}/>
 		</div>
 		<ActionButton title={'Generate'} className={'primary'} />
