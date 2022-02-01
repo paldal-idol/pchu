@@ -1,4 +1,5 @@
 <script lang="js">
+  import Flower from './components/flower.svelte';
 	import ActionButton from "./components/ActionButton.svelte";
 	import MenuButton from "./components/MenuButton.svelte";
 
@@ -14,7 +15,9 @@
 				<MenuButton title={option.title} />
 			{/each}
 		</div>
-		<img src={image} alt={'main image'}/>
+    <div class="Canvas">
+			<Flower />
+		</div>
 		<ActionButton title={'Generate'} className={'primary'} />
 		<ActionButton title={'Download'} />
 	</div>
@@ -25,9 +28,15 @@
 		text-align: center;
 		margin: 0 auto;
 	}
-	img{
+	.Container{
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+	.Canvas{
 		margin: 1em;
-		width: 240px;
+		width: 640px;
 		align-self: center;
 	}
 	h1 {
