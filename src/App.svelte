@@ -1,5 +1,5 @@
 <script lang="js">
-  import Flower from './components/flower.svelte';
+  import Flower from './components/Flower.svelte';
 	import ActionButton from "./components/ActionButton.svelte";
 	import MenuButton from "./components/MenuButton.svelte";
 
@@ -36,7 +36,7 @@
 	}
 	.Canvas{
 		margin: 1em;
-		width: 640px;
+		width: 400px;
 		align-self: center;
 	}
 	h1 {

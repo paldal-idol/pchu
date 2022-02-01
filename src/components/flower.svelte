@@ -1,6 +1,6 @@
 <script>
 	import { Canvas, Layer } from "svelte-canvas";
-  
+  const maxWidth = 400;
     let flowerObject = {
         value:{
             background:'white',
@@ -30,7 +30,7 @@
       let Enum = Object.keys(flowerObject.value);
 	$: render = ({ context, width, height }) => {
 	  context.beginPath();
-    const len = 640/16;
+    const len = maxWidth/16;
     flowerObject.array.map((element,index)=>{
       context.fillStyle = flowerObject.value[Enum[element]];
       context.fillRect(index%16*len,Math.floor(index/16)*len,len,len);
@@ -39,6 +39,6 @@
 	};
   </script>
   
-  <Canvas width={640} height={640}>
+  <Canvas width={maxWidth} height={maxWidth}>
 	<Layer {render} />
   </Canvas>
