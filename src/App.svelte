@@ -1,8 +1,12 @@
 <script lang="js">
-  import Flower from './components/Flower.svelte';
+  import Painter from './components/Painter.svelte';
 	import ActionButton from "./components/ActionButton.svelte";
 	import MenuButton from "./components/MenuButton.svelte";
+	let category = 'flower';
 
+	function handleChangeCategory(value){
+		category = value;
+	}
 	let image = 'img/main.png';
 	const options = [{title:'github'},{title:'cat'},{title:'woman'},{title:'man'},{title:'pig'},{title:'flower'}];
 </script>
@@ -12,14 +16,15 @@
 		<h1>pchu</h1>
 		<div class="Options">
 			{#each options as option}
-				<MenuButton title={option.title} />
+				<MenuButton title={option.title} {handleChangeCategory}/>
 			{/each}
 		</div>
     <div class="Canvas">
-			<Flower />
+			<Painter {category}/>
 		</div>
 		<ActionButton title={'Generate'} className={'primary'} />
 		<ActionButton title={'Download'} />
+		<div>{category}</div>
 	</div>
 </main>
 

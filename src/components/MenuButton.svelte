@@ -1,9 +1,10 @@
 <script>
     export let title;
     export let className;
+    export let handleChangeCategory;
 </script>
 
-<button class={className}>{title}</button>
+<button class={className} on:click={()=>handleChangeCategory(title)}>{title}</button>
 
 <style>
     button{
