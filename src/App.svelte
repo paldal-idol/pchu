@@ -14,7 +14,9 @@
 				<Button title={option.title} className={'Small'}/>
 			{/each}
 		</div>
-		<Flower />
+		<div class="Canvas">
+			<Flower />
+		</div>
 		<Button title={'Generate'} className={'Big'}/>
 		<Button title={'Download'} className={'Big'}/>
 	</div>
@@ -32,7 +34,11 @@
 		flex-direction: column;
 		justify-content: center;
 	}
-	
+	.Canvas{
+		margin: 1em;
+		width: 640px;
+		align-self: center;
+	}
 	h1 {
 		color: #ffff;
 		text-transform: uppercase;

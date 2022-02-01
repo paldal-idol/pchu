@@ -30,7 +30,7 @@
       let Enum = Object.keys(flowerObject.value);
 	$: render = ({ context, width, height }) => {
 	  context.beginPath();
-    const len = 24;
+    const len = 640/16;
     flowerObject.array.map((element,index)=>{
       context.fillStyle = flowerObject.value[Enum[element]];
       context.fillRect(index%16*len,Math.floor(index/16)*len,len,len);
