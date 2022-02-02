@@ -3,7 +3,7 @@
     export let className;
 </script>
 
-<button class={className}>{title}</button>
+<button class={className} on:click>{title}</button>
 
 <style>
     button{

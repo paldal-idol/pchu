@@ -3,11 +3,22 @@
 	import ActionButton from "./components/ActionButton.svelte";
 	import MenuButton from "./components/MenuButton.svelte";
 	
+	let profileImage;
 	let category = 'flower';
 	const options = [{title:'github'},{title:'cat'},{title:'woman'},{title:'man'},{title:'pig'},{title:'flower'}];
 	function handleChangeCategory(value)
 	{
 		category = value;
+	}
+	function setCanvas(event) {
+		profileImage = event.detail.ref;
+	}
+	function downloadImage() {
+		const dataURL = profileImage.toDataURL("image/png");
+		let aTag = document.createElement('a');
+		aTag.download = category + '.png';
+		aTag.href = dataURL;
+		aTag.click();
 	}
 </script>
 
@@ -20,11 +31,10 @@
 			{/each}
 		</div>
     	<div class="Canvas">
-			<Painter {category}/>
+			<Painter {category} on:canvas={setCanvas} />
 		</div>
 		<ActionButton title={'Generate'} className={'primary'} />
-		<ActionButton title={'Download'} />
-		<div>{category}</div>
+		<ActionButton title={'Download'} on:click={downloadImage} />
 	</div>
 </main>
 

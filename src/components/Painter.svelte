@@ -1,9 +1,20 @@
 <script>
+    import { createEventDispatcher, onMount } from "svelte";
+
 	  import { Canvas, Layer } from "svelte-canvas";
     import { Enum, object } from '../utils/types';
 
     export let category;
     const maxWidth = 400;
+    const dispatch = createEventDispatcher();
+    let canvas;
+
+    onMount(() => {
+      const canvasRef = canvas.getCanvas();
+      dispatch("canvas", {
+        ref: canvasRef
+      });
+    });
     
 	$: render = ({ context, width, height }) => {
 	  context.beginPath();
@@ -16,6 +27,6 @@
 	};
   </script>
   
-  <Canvas width={maxWidth} height={maxWidth}>
+  <Canvas width={maxWidth} height={maxWidth} bind:this={canvas}>
 	<Layer {render} />
   </Canvas>
