@@ -21,8 +21,10 @@
     context.beginPath();
     const len = maxWidth / 16;
     object[category].map((element, index) => {
-      context.fillStyle = randomColor[element];
-      context.fillRect((index % 16) * len, Math.floor(index / 16) * len, len, len);
+      element.split("").map((value, i) => {
+        context.fillStyle = randomColor[+value];
+        context.fillRect(i * len, index * len, len, len);
+      });
     });
     context.fill();
   };
