@@ -30,6 +30,8 @@
     "svelte-canvas": "^0.7.1"
   },
   "devDependencies": {
+    "prettier": "^2.5.1",
+    "prettier-plugin-svelte": "^2.6.0",
     "rollup-plugin-serve": "^1.1.0",
     "sass": "^1.49.0",
     "sirv-cli": "^2.0.0",
