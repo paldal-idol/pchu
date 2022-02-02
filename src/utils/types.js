@@ -1,8 +1,25 @@
-const color = {
-  white: "#FFFFFF",
-  brown: "#574133",
-  glass: "#4CDA88",
-  plum: "#FB6C66"
+const getColor = (category) => {
+  if (category === "flower") {
+    // background, border, plum, glass
+    return [
+      ["#FFFFFF"],
+      ["#574133", "#222222"],
+      ["#FB6C66", "#539400", "#00943B"],
+      ["#4CDA88", "#A13368", "#FFA800", "#5A70A7"]
+    ];
+  }
+  return ["#FFFFFF"];
+};
+
+const getRandomColor = (category) => {
+  const colors = getColor(category);
+
+  const colorInfo = colors.reduce((res, color) => {
+    const index = Math.floor(Math.random() * color.length);
+    res.push(color[index]);
+    return res;
+  }, []);
+  return colorInfo;
 };
 
 const object = {
@@ -524,9 +541,4 @@ const object = {
   ]
 };
 
-const Enum = Object.keys(color).reduce((result, element, index) => {
-  result[index] = color[element];
-  return result;
-}, {});
-
-export { Enum, object };
+export { object, getRandomColor };
