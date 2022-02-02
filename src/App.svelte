@@ -2,9 +2,12 @@
   import Painter from "./components/Painter.svelte";
   import ActionButton from "./components/ActionButton.svelte";
   import MenuButton from "./components/MenuButton.svelte";
+  import {getRandomColor} from './utils/types';
+
 
   let profileImage;
   let category = "flower";
+  let randomColor=getRandomColor(category);
   const options = [
     { title: "github" },
     { title: "cat" },
@@ -13,6 +16,9 @@
     { title: "pig" },
     { title: "flower" }
   ];
+  function handleChangeColor(){
+	randomColor = getRandomColor(category);
+  }
   function handleChangeCategory(value) {
     category = value;
   }
@@ -37,9 +43,9 @@
       {/each}
     </div>
     <div class="Canvas">
-      <Painter {category} on:canvas={setCanvas} />
+      <Painter {category} on:canvas={setCanvas} {randomColor}/>
     </div>
-    <ActionButton title={"Generate"} className={"primary"} />
+    <ActionButton title={"Generate"} className={"primary"} on:click={handleChangeColor}/>
     <ActionButton title={"Download"} on:click={downloadImage} />
   </div>
 </main>

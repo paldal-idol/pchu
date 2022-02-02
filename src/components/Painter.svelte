@@ -5,11 +5,10 @@
   import { getRandomColor, object } from "../utils/types";
 
   export let category;
+  export let randomColor;
   const maxWidth = 400;
   const dispatch = createEventDispatcher();
   let canvas;
-
-  const randomColor = getRandomColor(category);
 
   onMount(() => {
     const canvasRef = canvas.getCanvas();
